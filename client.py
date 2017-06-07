@@ -30,7 +30,7 @@ class Client:
 		response = connection.getresponse()
 		data = response.read()
 		if re.search(r"(\w*)\\r\\n\[done\]", str(data)):
-			message = re.search(r"(\w+)\\r\\n\[done\]", str(data)).group(1)
+			message = re.search(r"b'([\w\W]+)\\r\\n\[done\]", str(data)).group(1)
 			print(message)
 		status = re.search(r"(\[done\])", str(data)).group(1)
 		print(status)
