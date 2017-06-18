@@ -29,7 +29,7 @@ class Client:
 		connection.request('GET', '/cgi-bin/send.py?&queue=' + str(queue[0]))
 		response = connection.getresponse()
 		data = response.read()
-		if re.search(r"(\w*)\\r\\n\[done\]", str(data)):
+		if re.search(r"b'([\w\W]+)\\r\\n\[done\]", str(data)):
 			message = re.search(r"b'([\w\W]+)\\r\\n\[done\]", str(data)).group(1)
 			print(message)
 		status = re.search(r"(\[done\])", str(data)).group(1)
@@ -54,7 +54,7 @@ class ClientStarter:
 		try:
 			func(args)
 		except ConnectionRefusedError:
-			print("The server is unreachable. First of all start \'servet.py\'")
+			print("The server is unreachable. First of all start \'server.py\'")
 			parser.print_help()
 			exit()
 	

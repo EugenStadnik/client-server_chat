@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sys
+import sys, os
 from param_parser import ParamParser
 from http.server import HTTPServer, CGIHTTPRequestHandler
  
@@ -10,12 +10,20 @@ class Server:
 	
 	def __init__(self, host):
 		self.host = host
-
+		
 	def start_server(self, host, port):
 		server_address = (host, port)
 		httpd = HTTPServer(server_address, CGIHTTPRequestHandler)
 		print("The server is waiting for requests")
+		self.save_pid()
 		httpd.serve_forever()
+		print("Serving") # will never printed
+		
+	def save_pid(self):
+		with open("./test/server_pid.txt", "w") as server_pid_file:
+			server_pid_file.write(str(os.getpid()))
+			server_pid_file.close()
+		
 		
 class ServerStarter:
 	
@@ -31,6 +39,8 @@ class ServerStarter:
 			parser.print_help()
 		except KeyboardInterrupt:
 			print("See you next time. Bye-bye!")
+		except Exception as e:
+			print("The Exception " + str(e) + " is accured.")
 		finally:
 			exit()
 			

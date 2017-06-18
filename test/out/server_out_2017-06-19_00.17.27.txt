@@ -1,0 +1,4 @@
+The server is waiting for requests
+127.0.0.1 - - [19/Jun/2017 00:17:34] "GET /cgi-bin/send.py?&queue=0 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Jun/2017 00:17:34] command: C:\Users\ystadnik\AppData\Local\Programs\Python\Python36-32\python.exe -u C:\Users\ystadnik\Samsung_task\cgi-bin\send.py
+127.0.0.1 - - [19/Jun/2017 00:17:35] CGI script exited OK

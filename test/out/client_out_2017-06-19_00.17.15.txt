@@ -1,0 +1,22 @@
+The server is unreachable. First of all start 'server.py'
+usage: client.py [--help] [--version] {post,get} ...
+
+This is a primitive client implemented as a hiring task solvation. This
+application is used to send text messages to server and print text messages
+retrieved from the server using command line. The 'server.py' should ran
+first.
+
+Posible args:
+  Args that should be as a first parameter of client.py. For more
+  information use 'post -h' or 'get -h' option.
+
+  {post,get}
+    post      Start the client.py in the 'post' mode.
+    get       Start the client.py in the 'get' mode
+
+Parameters:
+  --help, -h  Help
+  --version   Show version
+
+(c) Yevhen Stadnik 2017. The author of thiss app, as usual, has no
+responsibility about anything.
